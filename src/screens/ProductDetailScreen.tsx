@@ -8,13 +8,19 @@ import {
   Alert,
   Modal,
   StatusBar,
+  Pressable,
 } from "react-native";
-import { useRoute } from "@react-navigation/native";
+import { useNavigation, useRoute } from "@react-navigation/native";
 import { Product } from "../types/types";
 import { colors, width } from "../utils/constants";
 import { cartStore } from "../store/cartStore";
 import Button from "../components/Button";
 import AntDesign from "@expo/vector-icons/AntDesign";
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
+import { RootStackParamList } from "../navigation/type";
+
+interface Props
+  extends NativeStackScreenProps<RootStackParamList, "Products"> {}
 
 const ProductDetail: React.FC = () => {
   const route = useRoute();
@@ -22,6 +28,7 @@ const ProductDetail: React.FC = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
   const { addProduct, productList } = cartStore(state => state);
+  const navigation = useNavigation<Props["navigation"]>();
 
   const onScroll = (event: any) => {
     const index = Math.round(event.nativeEvent.contentOffset.x / width);
@@ -37,6 +44,13 @@ const ProductDetail: React.FC = () => {
       setIsModalVisible(true);
       setTimeout(() => setIsModalVisible(false), 2000);
     }
+  };
+
+  const navigateToCategory = () => {
+    navigation.navigate("Products", {
+      categoryId: product.category.id,
+      categoryName: product.category.name,
+    });
   };
 
   return (
@@ -71,7 +85,12 @@ const ProductDetail: React.FC = () => {
 
       {/* Product Details */}
       <Text style={styles.title}>{product.title}</Text>
-      <Text style={styles.category}>Category: {product.category.name}</Text>
+      <Text style={styles.category}>
+        Category:{" "}
+        <Text style={styles.category_name} onPress={navigateToCategory}>
+          {product.category.name}
+        </Text>
+      </Text>
       <Text style={styles.price}>Price: ${product.price}</Text>
       <Text style={styles.description}>{product.description}</Text>
 
@@ -139,6 +158,11 @@ const styles = StyleSheet.create({
   category: {
     fontSize: 18,
     color: colors.container,
+  },
+  category_name: {
+    fontSize: 18,
+    color: colors.container,
+    textDecorationLine: "underline",
   },
   price: {
     fontSize: 20,
