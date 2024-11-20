@@ -1,12 +1,12 @@
 # Expo Project - Category and Product Management App
 
 <div style="display: flex; justify-content: space-between; flex-wrap: wrap;">
-  <img src="./assets/screenshots/Login.jpg" alt="Login" style="height: 200px; margin-right: 10px;">
-  <img src="./assets/screenshots/Home.jpg" alt="Home" style="height: 200px; margin-right: 10px;">
-  <img src="./assets/screenshots/Product_Detail.jpg" alt="Product Detail" style="height: 200px; margin-right: 10px;">
-  <img src="./assets/screenshots/Categories.jpg" alt="Categories" style="height: 200px; margin-right: 10px;">
-  <img src="./assets/screenshots/Category_Product.jpg" alt="Category Product" style="height: 200px; margin-right: 10px;">
-  <img src="./assets/screenshots/Cart.jpg" alt="Cart" style="height: 200px;">
+  <img src="./assets/screenshots/Login.jpg" alt="Login" style="height: 400px; margin-right: 10px;">
+  <img src="./assets/screenshots/Home.jpg" alt="Home" style="height: 400px; margin-right: 10px;">
+  <img src="./assets/screenshots/Product_Detail.jpg" alt="Product Detail" style="height: 400px; margin-right: 10px;">
+  <img src="./assets/screenshots/Categories.jpg" alt="Categories" style="height: 400px; margin-right: 10px;">
+  <img src="./assets/screenshots/Category_Product.jpg" alt="Category Product" style="height: 400px; margin-right: 10px;">
+  <img src="./assets/screenshots/Cart.jpg" alt="Cart" style="height: 400px;">
 </div>
 <br/>
 
